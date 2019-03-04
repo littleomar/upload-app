@@ -47,8 +47,9 @@
      #代理端口为3000可以按照需求更改
      ```
 
-##下载项目
-可以到[Github](https://github.com/littleomar/upload-app)下载压缩包或者通过git clone项目 `git clone git@github.com:littleomar/upload-app.git`
+## 下载项目
+可以到[Github](https://github.com/littleomar/upload-app)下载压缩包或者通过git clone项目 
+`git clone git@github.com:littleomar/upload-app.git`
 项目下载完成之后：
    ```bash
        #启动命令行工具 切换到项目目录
