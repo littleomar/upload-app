@@ -19,7 +19,7 @@ const historyApiFallback = require('koa2-connect-history-api-fallback').default;
 
 const app = new Koa();
 
-app.use(historyApiFallback())
+app.use(historyApiFallback({ whiteList: ['/api'] }))
 
 app.use(cors({
   origin: 'http://127.0.0.1:8080',
