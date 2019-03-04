@@ -5,16 +5,16 @@ module.exports = {
   domain: 'http://127.0.0.1:8080',
   smtp: {
     get host() {
-      return 'smtp.qq.com'
+      return '*********@****'
     },
     get user() {
-      return '862677916@qq.com'
+      return '*********@****'
     },
     get pass() {
-      return 'fgkiffrimznebeee'
+      return '*************'
     },
     get email() {
-      return '767745133@qq.com'
+      return '*********@****'
     }
   }
 }
