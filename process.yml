@@ -1,0 +1,5 @@
+apps:
+  - scripts: ./server/index.js
+    name: upload
+    env_production:
+      NODE_ENV: production
