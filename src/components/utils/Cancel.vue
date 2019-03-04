@@ -22,7 +22,7 @@
         if (!value) return callback(new Error('邮箱不能为空'));
         let re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
         if (!re.test(value)) return callback(new Error('请输入正确的邮箱地址'));
-        let emailRes = (await axios.get(`http://127.0.0.1:3000/api/user/query?email=${this.emailForm.email}`)).data;
+        let emailRes = (await axios.get(`http://47.95.215.162/api/user/query?email=${this.emailForm.email}`)).data;
         if (emailRes.code === 0) return callback(new Error('该用户不存在'));
         if (emailRes.code === 2) return callback(new Error('该用户已通过审核'));
         return callback();
@@ -43,7 +43,7 @@
       async cancel() {
         let validate = await this.$refs['emailForm'].validate();
         if ( !validate ) return false;
-        let res = (await axios.get(`http://127.0.0.1:3000/api/user/cancel?email=${this.emailForm.email}`)).data;
+        let res = (await axios.get(`http://47.95.215.162/api/user/cancel?email=${this.emailForm.email}`)).data;
         if (res.code !== 0) return false;
       }
     }

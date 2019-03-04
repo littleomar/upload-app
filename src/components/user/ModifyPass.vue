@@ -54,7 +54,7 @@
         if (!re.test(value)) {
           return callback(new Error('邮箱格式不正确'));
         }
-        let emailRes = (await axios.get(`http://127.0.0.1:3000/api/user/verify?email=${this.register.email}`)).data;
+        let emailRes = (await axios.get(`http://47.95.215.162/api/user/verify?email=${this.register.email}`)).data;
         if (emailRes.code === 0) {
           return callback(new Error('该邮箱不存在'));
         }
@@ -66,7 +66,7 @@
         if (!value) {
           return callback(new Error('验证码不能为空'));
         }
-        let codeRes = (await axios.get(`http://127.0.0.1:3000/api/user/verify?code=${this.register.code}&email=${this.register.email}`)).data;
+        let codeRes = (await axios.get(`http://47.95.215.162/api/user/verify?code=${this.register.code}&email=${this.register.email}`)).data;
         if (codeRes.code === 1) {
           return callback(new Error('验证码有误'));
         } else if (codeRes.code === 0 ) {
@@ -112,7 +112,7 @@
           } else {
             const _self = this;
             _self.button.status = 1;
-            let codeRes = (await axios.get(`http://127.0.0.1:3000/api/user/code?email=${_self.register.email}`)).data;
+            let codeRes = (await axios.get(`http://47.95.215.162/api/user/code?email=${_self.register.email}`)).data;
             if (codeRes.code === 1) {
               return false;
             }
@@ -133,7 +133,7 @@
         let validateRes = await this.$refs['register'].validate();
         if ( !validateRes ) return false;
         let registerRes = (await axios.post(
-          `http://127.0.0.1:3000/api/user/modifypass`,
+          `http://47.95.215.162/api/user/modifypass`,
           {
             email: this.register.email,
             password: this.register.pass,
@@ -142,7 +142,7 @@
         if (registerRes.code === 0) {
 
           if (sessionStorage.getItem('user')) {
-            let res = (await axios.get(`http://127.0.0.1:3000/api/user/exit`,{withCredentials:true})).data;
+            let res = (await axios.get(`http://47.95.215.162/api/user/exit`,{withCredentials:true})).data;
             if (!res) return new Error('服务器错误');
             if (res.code !== 0) return new Error('退出失败');
             sessionStorage.removeItem('user');

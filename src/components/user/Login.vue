@@ -35,7 +35,7 @@
         if (!re.test(value)) {
           return callback(new Error('邮箱格式不正确'));
         }
-        let emailRes = (await axios.get(`http://127.0.0.1:3000/api/user/verify?email=${this.loginForm.email}`)).data;
+        let emailRes = (await axios.get(`http://47.95.215.162/api/user/verify?email=${this.loginForm.email}`)).data;
         if (emailRes.code === 0) return callback(new Error('该邮箱不存在'));
         if (emailRes.code === 1) return callback(new Error('该邮箱未通过审核'));
         return callback();
@@ -80,7 +80,7 @@
           if (valid) {
             let res = (await axios({
               method: 'post',
-              url: 'http://127.0.0.1:3000/api/user/login',
+              url: 'http://47.95.215.162/api/user/login',
               withCredentials: true,
               data: {
                 email: this.loginForm.email,

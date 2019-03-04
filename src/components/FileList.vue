@@ -59,7 +59,7 @@
     },
     methods: {
       downloadFile(item) {
-        window.open(`http://127.0.0.1:3000/api/file/download?id=${item.id}`)
+        window.open(`http://47.95.215.162/api/file/download?id=${item.id}`)
       },
       async deleteFile(item) {
         this.$confirm('您确定删除此文件吗？','提示',{
@@ -68,7 +68,7 @@
           showClose: false,
           center: true
         }).then(async ()=>{
-          let res = (await axios.get(`http://127.0.0.1:3000/api/file/delete?id=${item.id}`,{withCredentials:true})).data;
+          let res = (await axios.get(`http://47.95.215.162/api/file/delete?id=${item.id}`,{withCredentials:true})).data;
           if (!res) return new Error('服务器错误');
           if (res.code === 1) return new Error('无权限');
           if (res.code === 2) return new Error('文件不存在');

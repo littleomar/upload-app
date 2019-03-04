@@ -66,7 +66,7 @@
       if (user) {
         if (user.role === 0) {
           next( async vm => {
-            let res = (await axios.get(`http://127.0.0.1:3000/api/user/query?email=${vm.$route.params.email}`,{withCredentials:true})).data;
+            let res = (await axios.get(`http://47.95.215.162/api/user/query?email=${vm.$route.params.email}`,{withCredentials:true})).data;
             if (res.code === 0) {
               vm.$message.error('该用户不存在');
               vm.$router.push('/')
@@ -105,7 +105,7 @@
           });
           return false;
         }
-        let queryRes = (await axios.get(`http://127.0.0.1:3000/api/user/verify?realname=${this.user.realname}&email=${this.user.email}`)).data;
+        let queryRes = (await axios.get(`http://47.95.215.162/api/user/verify?realname=${this.user.realname}&email=${this.user.email}`)).data;
         if (!queryRes) {
           this.$message({
             type: 'error',
@@ -132,7 +132,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(async () => {
-          let modifyRes = (await axios('http://127.0.0.1:3000/api/user/admin/modify',{
+          let modifyRes = (await axios('http://47.95.215.162/api/user/admin/modify',{
             method: 'post',
             withCredentials: true,
             data: {
@@ -167,7 +167,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(async () => {
-          let removeRes = (await axios.get(`http://127.0.0.1:3000/api/user/admin/removeUser?email=${this.user.email}`)).data;
+          let removeRes = (await axios.get(`http://47.95.215.162/api/user/admin/removeUser?email=${this.user.email}`)).data;
           if (!removeRes) {
             this.$message({
               type: 'error',
@@ -195,7 +195,7 @@
         });
       },
       async changePage(page) {
-        let res = (await axios.get(`http://127.0.0.1:3000/api/file/list?email=${this.$route.params.email}&page=${page}`,{withCredentials:true})).data;
+        let res = (await axios.get(`http://47.95.215.162/api/file/list?email=${this.$route.params.email}&page=${page}`,{withCredentials:true})).data;
         if (!res) return new Error('服务器错误');
         if (res.code === 4) return new Error('该用户无权限');
         this.$set(this.fileList,'totalFile',res.total);
@@ -234,7 +234,7 @@
       }
     },
     async beforeMount() {
-      let res = (await axios.get(`http://127.0.0.1:3000/api/admin/userDetail?email=${this.$route.params.email}`,{withCredentials:true})).data;
+      let res = (await axios.get(`http://47.95.215.162/api/admin/userDetail?email=${this.$route.params.email}`,{withCredentials:true})).data;
       if (!res) return new Error('服务器错误');
       if (res.code === 1) return new Error('用户不存在');
       if (res.code !== 0) return new Error(res.message);
@@ -242,7 +242,7 @@
 
       this.oldUser = {...this.user};
 
-      let fileRes = (await axios.get(`http://127.0.0.1:3000/api/file/list?email=${this.$route.params.email}`,{withCredentials:true})).data;
+      let fileRes = (await axios.get(`http://47.95.215.162/api/file/list?email=${this.$route.params.email}`,{withCredentials:true})).data;
       if (!fileRes) return new Error('服务器错误');
       if (fileRes.code === 4) return new Error('该用户无权限');
       this.$set(this.fileList,'totalFile',fileRes.total);

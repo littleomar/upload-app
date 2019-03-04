@@ -31,7 +31,7 @@
     },
     methods: {
       async changePage(page) {
-        let res = (await axios.get(`http://127.0.0.1:3000/api/file/list?page=${page}`,{withCredentials:true})).data;
+        let res = (await axios.get(`http://47.95.215.162/api/file/list?page=${page}`,{withCredentials:true})).data;
         if (!res) return new Error('服务器错误');
         if (res.code === 4) return new Error('该用户无权限');
         this.$set(this.fileList,'totalFile',res.total);
@@ -39,7 +39,7 @@
       }
     },
     async beforeMount() {
-      let res = (await axios.get('http://127.0.0.1:3000/api/file/list',{withCredentials:true})).data;
+      let res = (await axios.get('http://47.95.215.162/api/file/list',{withCredentials:true})).data;
       if (!res) return new Error('服务器错误');
       if (res.code === 4) return new Error('该用户无权限');
       this.$set(this.fileList,'totalFile',res.total);

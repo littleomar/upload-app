@@ -72,7 +72,7 @@
       },
       async changePage(page) {
         let userInfo = JSON.parse(sessionStorage.getItem('user'));
-        let res = (await axios.get(`http://127.0.0.1:3000/api/file/list?email=${userInfo.email}&page=${page}`,{withCredentials:true})).data;
+        let res = (await axios.get(`http://47.95.215.162/api/file/list?email=${userInfo.email}&page=${page}`,{withCredentials:true})).data;
         if (!res) return new Error('服务器错误');
         if (res.code === 4) return new Error('该用户无权限');
         this.$set(this.fileList,'totalFile',res.total);
@@ -107,7 +107,7 @@
         data.append("file",file);
         let updateRes = await axios({
           method: 'post',
-          url: 'http://127.0.0.1:3000/api/file/add',
+          url: 'http://47.95.215.162/api/file/add',
           headers: {"Content-Type":"multipart/form-data "},
           withCredentials: true,
           onUploadProgress: (progressEvent) => {
@@ -136,7 +136,7 @@
       this.$set(this.user,'realname',userInfo.realname)
 
 
-      let res = (await axios.get(`http://127.0.0.1:3000/api/file/list?email=${userInfo.email}`,{withCredentials:true})).data;
+      let res = (await axios.get(`http://47.95.215.162/api/file/list?email=${userInfo.email}`,{withCredentials:true})).data;
       if (!res) return new Error('服务器错误');
       if (res.code === 4) return new Error('该用户无权限');
       this.$set(this.fileList,'totalFile',res.total);

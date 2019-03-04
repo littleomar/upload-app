@@ -91,7 +91,7 @@
       }
     },
     async beforeMount() {
-      let res = (await axios.get('http://127.0.0.1:3000/api/admin/allUser',{withCredentials:true})).data;
+      let res = (await axios.get('http://47.95.215.162/api/admin/allUser',{withCredentials:true})).data;
       if (!res) return new Error('服务器错误');
       if (res.code === 5) return new Error('用户无权限');
       if (res.code !== 0) return new Error(res.message);
