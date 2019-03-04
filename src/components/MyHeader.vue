@@ -31,7 +31,7 @@
           showClose: false,
           center: true
         }).then(async ()=>{
-          let res = (await axios.get(`http://47.95.215.162/api/user/exit`,{withCredentials:true})).data;
+          let res = (await axios.get(`${process.env.API_BASE}/api/user/exit`,{withCredentials:true})).data;
           if (!res) return new Error('服务器错误');
           if (res.code !== 0) return new Error('退出失败');
           sessionStorage.removeItem('user');

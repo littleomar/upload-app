@@ -4258,6 +4258,11 @@ koa-static@^5.0.0:
     debug "^3.1.0"
     koa-send "^5.0.0"
 
+koa2-connect-history-api-fallback@^0.1.1:
+  version "0.1.1"
+  resolved "http://registry.npm.taobao.org/koa2-connect-history-api-fallback/download/koa2-connect-history-api-fallback-0.1.1.tgz#0382583391bd9dd00ce268ae50d0f88ca43184df"
+  integrity sha1-A4JYM5G9ndAM4miuUND4jKQxhN8=
+
 koa2-cors@^2.0.6:
   version "2.0.6"
   resolved "http://registry.npm.taobao.org/koa2-cors/download/koa2-cors-2.0.6.tgz#9ad23df3a0b9bb84530b46f5944f3fb576086554"

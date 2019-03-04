@@ -14,6 +14,7 @@ const Redis = require('koa-redis');
 const session = require('koa-generic-session');
 const path = require('path')
 const server = require('koa-static')
+const historyApiFallback = require('koa2-connect-history-api-fallback');
 
 
 const app = new Koa();
@@ -23,6 +24,8 @@ app.use(cors({
   origin: 'http://127.0.0.1:8080',
   credentials: true
 }));
+
+app.use(historyApiFallback({ whiteList: ['/api'] }));
 
 app.use(server(path.resolve(__dirname,'../dist')))
 
