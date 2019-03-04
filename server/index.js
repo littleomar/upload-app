@@ -12,6 +12,8 @@ const admin = require('./interface/admin');
 const passport = require('./interface/utils/passport');
 const Redis = require('koa-redis');
 const session = require('koa-generic-session');
+const path = require('path')
+const server = require('koa-static')
 
 
 const app = new Koa();
@@ -21,6 +23,8 @@ app.use(cors({
   origin: 'http://127.0.0.1:8080',
   credentials: true
 }));
+
+app.use(server(path.resolve(__dirname,'../dist')))
 
 app.use(koaBody({
   multipart: true,
