@@ -23,7 +23,7 @@ app.use(historyApiFallback({ whiteList: ['/api'] }))
 
 app.use(cors({
   //origin: 'http://localhost:8080',
-  // origin: 'http://localhost:8080',
+  origin: 'http://upload.ccimm.top',
 
   credentials: true
 }));
