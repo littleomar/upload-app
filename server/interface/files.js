@@ -138,7 +138,7 @@ router.get('/download', async ctx => {
 
   ctx.attachment(file.filename);
 
-  await send(ctx,`/upload/${file.name}`)
+  await send(ctx,Path.resolve(__dirname,`../../../upload/${file.name}`))
 });
 
 
