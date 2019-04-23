@@ -2,19 +2,19 @@
 
 module.exports = {
   dbs: 'mongodb://127.0.0.1:27017/upload',
-  domain: 'http://127.0.0.1:8080',
+  domain: 'http://upload.ccimm.top',
   smtp: {
     get host() {
-      return '*********@****'
+      return 'smtp.qq.com'
     },
     get user() {
-      return '*********@****'
+      return '862677916@qq.com'
     },
     get pass() {
-      return '*************'
+      return 'jdbyrkcdqbvrbfef'
     },
     get email() {
-      return '*********@****'
+      return '767745133@qq.com'  //管理员邮箱
     }
   }
 }

@@ -107,7 +107,7 @@
         data.append("file",file);
         let updateRes = await axios({
           method: 'post',
-          url: '${process.env.API_BASE}/api/file/add',
+          url: `${process.env.API_BASE}/api/file/add`,
           headers: {"Content-Type":"multipart/form-data "},
           withCredentials: true,
           onUploadProgress: (progressEvent) => {

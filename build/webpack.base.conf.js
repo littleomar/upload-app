@@ -71,7 +71,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.API_BASE': '"http://47.95.215.162"'    //网站域名
+      'process.env.API_BASE': '"http://upload.ccimm.top"'    //网站域名
+      //'process.env.API_BASE': '"http://127.0.0.1:5000"'    //网站域名
     })
   ],
   node: {

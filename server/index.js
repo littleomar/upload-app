@@ -22,7 +22,9 @@ const app = new Koa();
 app.use(historyApiFallback({ whiteList: ['/api'] }))
 
 app.use(cors({
-  origin: 'http://127.0.0.1:8080',
+  //origin: 'http://localhost:8080',
+  // origin: 'http://localhost:8080',
+
   credentials: true
 }));
 
@@ -55,8 +57,8 @@ app.use(admin.routes()).use(admin.allowedMethods());
 
 
 
-const HOST = process.env.HOST || '0.0.0.0'
-const PORT = process.env.PORT || 3000
+const HOST = process.env.HOST || '127.0.0.1'
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, HOST, () => {
   console.log(`server is listening on ${HOST}:${PORT}`)

@@ -39,7 +39,7 @@
       }
     },
     async beforeMount() {
-      let res = (await axios.get('${process.env.API_BASE}/api/file/list',{withCredentials:true})).data;
+      let res = (await axios.get(`${process.env.API_BASE}/api/file/list`,{withCredentials:true})).data;
       if (!res) return new Error('服务器错误');
       if (res.code === 4) return new Error('该用户无权限');
       this.$set(this.fileList,'totalFile',res.total);

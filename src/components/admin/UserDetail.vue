@@ -132,7 +132,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(async () => {
-          let modifyRes = (await axios('${process.env.API_BASE}/api/user/admin/modify',{
+          let modifyRes = (await axios(`${process.env.API_BASE}/api/user/admin/modify`,{
             method: 'post',
             withCredentials: true,
             data: {

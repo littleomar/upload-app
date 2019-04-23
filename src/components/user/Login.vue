@@ -80,7 +80,7 @@
           if (valid) {
             let res = (await axios({
               method: 'post',
-              url: '${process.env.API_BASE}/api/user/login',
+              url: `${process.env.API_BASE}/api/user/login`,
               withCredentials: true,
               data: {
                 email: this.loginForm.email,
